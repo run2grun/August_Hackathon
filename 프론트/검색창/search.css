@@ -1,0 +1,76 @@
+
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+/* fontawesome */
+[class*="fontawesome-"]:before {
+    font-family: "FontAwesome", sans-serif;
+}
+
+
+
+form {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    overflow: hidden;
+    transition: width 0.5s;
+    margin: auto;
+    -webkit-backface-visibility: hidden;
+    background: rgba(0, 0, 0, 0);
+}
+
+form.opened {
+    width: 330px;
+}
+form.opened:before {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+input[type="search"] {
+    position: absolute;
+    top: 0;
+    right: 28px;
+    height: 60px;
+    width: 0;
+    float: left;
+    font-size: 1.5em;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    outline: none;
+    border: none;
+    padding-left: 20px;
+    color: #28d7d7;
+    transition: width 0.5s;
+}
+
+form.opened input[type="search"] {
+    width: 300px;
+    transition: width 0.5s;
+}
+
+button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60px;
+    height: 60px;
+    background: #28d7d7;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    font-size: 1.3em;
+    outline: none;
+    cursor: pointer;
+}
+
+form.opened button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
