@@ -32,7 +32,7 @@ def parse(request):
     
     title = parsed_page.find('dd').text #title 태그 찾아서 텍스트만 추출하기
     body = parsed_page.find(attrs = {'type2'} )
-    contents = body.find('a').text # 첫 번째 p 태그의 텍스트 가져 오기 text 빼먹어서 안 됐었음
+    contents = body.find('span').text # 첫 번째 a 태그의 텍스트 가져 오기 text 빼먹어서 안 됐었음
     return render(request, 'parsing.html', {'title': title, 'contents': contents})
 
 # Create your views here.
