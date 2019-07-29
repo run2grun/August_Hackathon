@@ -24,7 +24,7 @@ def main(request):
     return render(request, 'home.html', {'location': location, 'now':now, 'sky':sky, 'to_temp':to_temp, 'to_sky':to_sky})
 
 def parse(request):
-    url = request.POST['parse_url']
+    url = request.POST.get('parse_url',False)
     res = requests.get('https://www.kmdb.or.kr/db/kor/detail/movie/K/15021'+ url) #해당 url로 GET 요청을 함
     
 
