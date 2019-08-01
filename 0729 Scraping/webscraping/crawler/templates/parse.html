@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load staticfiles %}
+    <link rel = "stylesheet" href = "{% static 'css/parse.css' %}">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
 <body>
-    <div class="con1">
+    <div class="container1">
         <a href="/"><h1>Film</h1></a>
-        <form action="/parse" method="POST">
-        {% csrf_token %}
-        <input type="text" name="parse_url" size="40">
-        <button type="submit" class="btn btn-primary">Search</button>
-        </form>
+        
     </div>
-    <div class="con2">
+    <div class="container2">
         <h2>{{ title }}</h2>
-        <br><br>
         <br><br>
         <p>Location : </p><br>
         <p>{{contents|linebreaksbr}}</p>
         {% for n in contents %}<br>
         {% endfor %}
+        <!--여기서 지도로 넘어가게 링크 걸기-->
     </div>
 </body>
 </html>
