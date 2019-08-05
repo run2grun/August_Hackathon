@@ -20,6 +20,7 @@ import location.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', webscraping.views.main, name="main"),
-    path('', location.views.location, name="location"),
+    path('location', location.views.location, name="location"),
+    path('', location.views.home, name="home"),
 ]
 
