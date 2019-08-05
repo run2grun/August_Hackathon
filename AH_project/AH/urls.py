@@ -20,4 +20,6 @@ import here.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',here.views.home, name='home'),
+    path('location', here.views.location, name='location'),
+    path('parse', here.views.parse, name='parse'),
 ]
