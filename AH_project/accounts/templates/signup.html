@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="C:/Users/choi/Documents/GitHub/August_Hackathon/AH_project/static/css/signup.css">
+    <title>signup</title>
+</head>
+
+<body>
+    <img src="이미지/로고.png">
+    {% if error %}
+    {{error}}
+    <br><br>
+    {% endif %}
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            Username:
+            <br>
+            <input name="username" type="text">
+            <br>
+            Password:
+            <br>
+            <input name="password1" type="password">
+            <br>
+            Confirm Password:
+            <br>
+            <input name="password2" type="password">
+            <br><br>
+        </form>
+        <input class="btn" type="submit" value="가입하기">
+</body>
+
+</html>
