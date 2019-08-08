@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
+    <title>signup</title>
+</head>
+<body>
+    <img src="{% static '로고.png' %}">
+    {% if error %}
+    {{error}}
+    <br><br>
+    {% endif %}
+        <form method="POST" action="{% url 'signup' %}">
+            {% csrf_token %}
+            Username:
+            <br>
+            <input name="username" type="text">
+            <br>
+            Password:
+            <br>
+            <input name="password1" type="password">
+            <br>
+            Confirm Password:
+            <br>
+            <input name="password2" type="password">
+            <br><br>
+        </form>
+        <input class="btn" type="submit" value="가입하기">
+</body>
+</html>
