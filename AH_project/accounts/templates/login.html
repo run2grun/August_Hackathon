@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static login.css %}">
+    <link rel="stylesheet" href="{% static 'login.css' %}">
     <title>login</title>
 </head>
 <body>
 <div class="container">
-    <img src="{% static 로고.png %}">
+    <img src="{% static '로고.png' %}">
     {% if error %}
     {{error}}
     <br><br>
@@ -28,7 +28,7 @@
         <br><br>
         <input class="btn" type="submit" value="로그인">
     </form>
-    <hr>
+    <hr style="border: solid 1px #1b2b84">
     <input type="submit" value="아이디찾기">
     <input type="submit" value="비밀번호찾기">
     <input type="submit" value="회원가입">
