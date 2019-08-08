@@ -45,3 +45,11 @@ button {
     top:30%; left:50%;
     transform: translate(-50%, -50%);
 }
+p {
+    font-size: 1.2em;
+    font-family: 'Handon3gyeopsal600g';  
+    display: block;
+    position: absolute;
+    top: 57%;
+    left: 40%;
+}
