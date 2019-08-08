@@ -6,32 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'login.css' %}">
+    <script language="javascript">
+        function showPopup() { window.open("{% url 'signup' %}", "a", "width=400, height=500, left=100, top=50"); }
+    </script>
     <title>login</title>
 </head>
+
 <body>
 <div class="container">
-    <img src="{% static '로고.png' %}">
+    <a href="{% url 'home'%}"><img src="{% static '로고.png' %}"></a>
+    <br>
     {% if error %}
     {{error}}
     <br><br>
     {% endif %}
     <form method="POST" action="{% url 'login' %}">
         {% csrf_token %}
-        Username:
-        <br>
-        <input name="username" type="text">
-        <br>
-        Password:
-        <br>
-        <input name="password" type="password">
-
-        <br><br>
+        <div class="nemo"><input name="username" type="text" placeholder="아이디"></div>
+        <div class="nemo"><input name="password" type="password" placeholder="비밀번호"></div>
         <input class="btn" type="submit" value="로그인">
     </form>
     <hr style="border: solid 1px #1b2b84">
-    <input type="submit" value="아이디찾기">
-    <input type="submit" value="비밀번호찾기">
-    <input type="submit" value="회원가입">
+    <button type="submit">아이디찾기</button>
+    <button type="submit">비밀번호찾기</button>
+    <button type="submit" onclick="showPopup();">회원가입</button>
 </div>
 </body>
 </html>

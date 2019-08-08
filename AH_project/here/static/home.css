@@ -53,3 +53,8 @@ p {
     top: 57%;
     left: 40%;
 }
+.sign{
+    position: fixed;
+    right: 3%;
+    display: flex;
+}
