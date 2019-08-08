@@ -15,7 +15,7 @@ def parse(request):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     
-    driver = webdriver.Chrome("C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe")
+    driver = webdriver.Chrome("C:\\Users\\user\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe",chrome_options=options)
     #,chrome_options=options
     print('크롤링 시작')
     driver.get('https://www.kmdb.or.kr/main')
