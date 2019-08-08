@@ -1,40 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>여기거기</title>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<html>
+    <head>
+        <meta charset="utf-8" >
+        <title>XMLHttpRequest send file demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--set Document Mode to IE=edge -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <!-- Le styles -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+        
+    </head>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://kit.fontawesome.com/950ecdbad1.js"></script>
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" media="all">
-    <link rel="stylesheet" href="https://kit-free.fontawesome.com/releases/latest/css/free-v4-shims.min.css" media="all">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">    
-</head>
-<body> 
-    <nav>
-        <div class="nav-wrapper">
-        <a href="/" class="brand-logo"><i class="material-icons">:)</i>여기거기</a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="/"><i class="material-icons">search</i></a></li>
-        </ul>
-        </div>
-    </nav>
+    <body>
 
-    <nav>
-        <div class="nav-wrapper">
-        <form>
-            <div class="input-field">
-            <input id="search" type="search" required>
-            <label class="label-icon" for="search"><i class="fas fa-search"></i></label>
-            <i class="material-icons">close</i>
-            </div>
-        </form>
-        </div>
-    </nav>
-</body>
+    <div id="driver-uploader-detail" style='width:500px; margin:0 auto;'>
+        <div class='page-header'><h2>XMLHttpRequest send file demo</h2></div>
+        <input id="driver-uploader-path"  type="file" class="filestyle" data-icon="true" data-buttonText="Browse" name="driver_file">       
+        &nbsp;
+        <span id="driver-uploader-success-alert" class='text-success' style="display:none">Success!</span>
+        <span id="driver-uploader-failure-alert" class='text-danger' style="display:none">Failed!</span>
+    </div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('#driver-uploader-path').change(function(){
+            var file = this.files[0];
+            filename = '';
+            if('name' in file)
+            filename= file.name;
+            else
+            filename = file.fileName;
+            var xhr = new XMLHttpRequest();
+            (xhr.upload || xhr).addEventListener('progress', function(e) {
+                var done = e.position || e.loaded
+                var total = e.totalSize || e.total;
+                console.log('xhr progress: ' + Math.round(done/total*100) + '%');
+            });
+            xhr.addEventListener('load', function(e) {
+                data = JSON.parse(this.responseText);
+                if(this.status != 200){
+                $('#driver-uploader-failure-alert').show();
+                return;
+                }
+                $('#driver_source').val('Flat file on idisas');
+                $('#driver_name').val(data['file_remote_path']).blur();
+                $('#driver-uploader-success-alert').show();
+            });
+            xhr.open('post', '/your-sever-url', true);
+            var fd = new FormData();
+            fd.append("filename", filename);
+            fd.append("drive_file", file);
+            xhr.send(fd);
+        });
+    });
+    </script>
+    
+    </body>
 </html>

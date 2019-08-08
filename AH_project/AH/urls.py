@@ -19,5 +19,5 @@ import here.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',here.views.home, name='home'),
+    path('',here.views.upload_driver, name='upload_driver'),
 ]
