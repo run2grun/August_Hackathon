@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', crawler.views.main, name="main"),
     path('parse/', crawler.views.parse, name="parse"),
+    path('parse2/', crawler.views.parse2,name='parse2'),
 ]
