@@ -3,11 +3,11 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 # Create your views here.
-def location(request):
-    return render(request,'location.html')
-
 def home(request):
     return render(request, 'home.html')
+
+def location(request):
+    return render(request,'location.html')
 
 def parse(request):
     title = request.GET['parse_url']

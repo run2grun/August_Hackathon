@@ -20,3 +20,9 @@ def upload_driver(request):
     else:
         return HttpResponse(status=500)
     return HttpResponse(json.dumps(ret), mimetype = "application/json")
+
+def location(request):
+    return render(request, 'location.html')
+
+def parse(request):
+    return render(request, 'parsing.html')
