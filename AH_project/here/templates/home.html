@@ -67,9 +67,12 @@
     </nav>
     <div class="logo"><img src="{% static '로고.png' %}"></div>
     <div class="search" id="search">
-        <input type="text" placeholder="검색어 입력">
+        <form action="{%url 'parse' %}" method="GET">
+        <input type="text" name="parse_url" placeholder="검색어 입력">
         <button type="submit" class="btn-search"><i class="fas fa-search fa-3x"></i>
-
+        </button>
+        </form>
+    </div>
     
     </body>
 </html>

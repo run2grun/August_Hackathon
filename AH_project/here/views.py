@@ -1,28 +1,42 @@
 from django.shortcuts import render
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
-def upload_driver(request):
-    upload_file = request.FILES['drive_file']
-    ret = {}
-    if upload_file:
-        target_folder = settings.PULL_DRIVER_UPLOAD_PATH
-        if not os.path.exists(target_folder): os.mkdir(target_folder)
-        rtime = str(int(time.time()))
-        filename = request.POST['filename']
-        target = os.path.join(target_folder, filename)
-        with open(target, 'wb+') as dest:
-            for c in upload_file.chunks():
-                dest.write(c)
-        ret['file_remote_path'] = target
-    else:
-        return HttpResponse(status=500)
-    return HttpResponse(json.dumps(ret), mimetype = "application/json")
-
 def location(request):
     return render(request, 'location.html')
 
 def parse(request):
-    return render(request, 'parsing.html')
+    title = request.GET['parse_url']
+    
+    options = webdriver.ChromeOptions()
+    options.add_argument('headless')
+    
+    driver = webdriver.Chrome("C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe")
+    #,chrome_options=options -> 창안보이게 하기
+    #혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
+    print('크롤링 시작')
+    driver.get('https://www.kmdb.or.kr/main')
+    driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
+    searchs = driver.find_elements_by_class_name('ftc-blue')
+    for search in searchs:
+        print(search.text)
+        if search.text==title:
+            search.click()
+            break
+    a=''
+    contents=driver.find_elements_by_class_name('gab1')
+    print(contents)
+    for content in contents:
+        a+=content.text
+        print(content.text)
+
+    print(a)
+    #newstr = contents.replace("\n", "")
+    split_contents = a.split(',')
+
+    return render(request,'parsing.html',{'title':title,'contents':split_contents})
