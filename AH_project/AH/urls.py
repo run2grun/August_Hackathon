@@ -18,11 +18,13 @@ from django.urls import path, include
 import here.views
 import accounts.views
 
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',here.views.home, name='home'),
-    path('location', here.views.location, name='location'),
-    path('parse', here.views.parse, name='parse'),
-    path('accounts',include('accounts.urls')),
-    path('here/', portfolio.views.here, name='here'),
-]
+    path('location/', here.views.location, name='location'),
+    path('parse/', here.views.parse, name='parse'),
+    path('accounts/',include('accounts.urls')),
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

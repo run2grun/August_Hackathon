@@ -1,12 +1,15 @@
-<html>
-
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <link rel="stylesheet" href="C:/Users/choi/Documents/GitHub/August_Hackathon/AH_project/static/css/signup.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'signup.css' %}">
     <title>signup</title>
 </head>
-
 <body>
-    <img src="이미지/로고.png">
+    <img src="{% static '로고.png' %}">
     {% if error %}
     {{error}}
     <br><br>
@@ -28,5 +31,4 @@
         </form>
         <input class="btn" type="submit" value="가입하기">
 </body>
-
 </html>

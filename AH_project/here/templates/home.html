@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="C:/Users/choi/Documents/GitHub/August_Hackathon/AH_project/static/css/home.css">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
     <script src="https://kit.fontawesome.com/9e7c910136.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -21,7 +21,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script language="javascript">
-        function showPopup() { window.open("C:/Users/choi/Documents/GitHub/August_Hackathon/AH_project/static/css/signup.html", "a", "width=400, height=500, left=100, top=50"); }
+        function showPopup() { window.open("{% url 'signup' %}", "a", "width=400, height=500, left=100, top=50"); }
     </script>
     <title>Home</title>
 </head>
@@ -58,7 +58,9 @@
                     {% csrf_token %} <input type="hidden" />
                 </form>
                 {% else %}
-                <input type="submit" value="로그인">
+                <li class="nav-item">
+                    <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+                </li>
                 <input type="submit" value="회원가입" onclick="showPopup();">
                 {% endif %}
             </ul>
