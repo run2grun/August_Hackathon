@@ -28,25 +28,14 @@ def text(request,title):
     text.save()
 
     t=Text.objects
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-
-    driver = webdriver.Chrome("C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\AH_project\\here\\chromedriver_win32\\chromedriver.exe")
-
-    #,chrome_options=options -> 창안보이게 하기
-    #혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
-    #근영 경로 C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\chromedriver_win32\\chromedriver.exe
-    print('크롤링 시작')
-    driver.get('https://www.kmdb.or.kr/main')
-    driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
-    searchs = driver.find_elements_by_class_name('ftc-blue')
-    cnt=0
-    for search in searchs:
-        print(search.text)
-        if cnt==1:
-            print("click")
-            search.click()
+    m=Movie.objects
+    for movie in m.all() :
+        if movie.title == title:
+            content=movie.text
+            split_contents = content.split(',')
+            check=1
             break
+    
     
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
 
@@ -56,30 +45,7 @@ def parse(request):
     t=Text.objects
     m=Movie.objects
     title = request.GET['parse_url']
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
     
-    driver = webdriver.Chrome("C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\AH_project\\here\\chromedriver_win32\\chromedriver.exe")
-    # ,chrome_options=options -> 창안보이게 하기
-    # 혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
-    print('크롤링 시작')
-    driver.get('https://www.kmdb.or.kr/main')
-    driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
-    searchs = driver.find_elements_by_class_name('ftc-blue')
-    # for search in searchs:
-    #     print(search.text)
-    #     if search.text==title:
-    #         search.click()
-    #         break
-    cnt=0
-    for search in searchs:
-        print(search.text)
-        if cnt==1:
-            print("click")
-            search.click()
-            break
-        cnt=cnt+1
-
     for movie in m.all() :
         if movie.title == title:
             content=movie.text
@@ -93,6 +59,7 @@ def parse(request):
         driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32\\chromedriver.exe")
         # ,chrome_options=options -> 창안보이게 하기
         # 혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
+        #근영 경로 C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\chromedriver_win32\\chromedriver.exe
         print('크롤링 시작')
         driver.get('https://www.kmdb.or.kr/main')
         driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
