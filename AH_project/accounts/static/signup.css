@@ -7,10 +7,21 @@ form{
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
     padding: 10px;
+
 }
 
 .btn{
-    background: #1b2b84;
+    background: #30A9DE;
     border: none;
     outline: none;
+    height: 40px;
+    left:30%;
+}
+
+input{
+    width: 330px;
+    height: 35px;
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    border: 2px solid #1b2b84;
 }
