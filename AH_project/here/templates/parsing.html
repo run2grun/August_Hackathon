@@ -6,11 +6,41 @@
     <div class="con2">
         <h2>{{ title }}</h2>
 
-        <div id="map" style="left:50px;top:50px;width:350px;height:350px;"></div>
+            <div id="map" style="left:50px;top:3px;width:350px;height:350px;"></div>
 
-        <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5782fe6c09631f4d135bb41e40183ad6&libraries=services"></script>
-        <script>
+            <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
+                {%for content in t.all%}
+
+                {% if title == content.title%}
+                <h5 class="card-title">{{content.name}} :  {{content.text}}</h5>
+                {% endif %}
+
+                {%if user.username == content.name %}
+                    <a href="{% url 'delete' content.id %}">삭제</a> 
+                {%else%}
+                    <a href="{% url 'delete' content.name %}" style="display:none;">삭제</a>
+                {%endif%}
+
+                {% endfor %}
+            
+                {% if user.is_authenticated %}
+                <form action="{%url 'text' title%}" method="GET">{{title}}
+                    <input type="text" name="text1">
+                    <button type="submit" class="btn-search">
+                        입력
+                    </button>
+                </form>
+                {% else %}
+                <form action="{%url 'text' title%}" method="GET" style="display:none;">{{title}}
+                    <input type="text" name="text1">
+                    <button type="submit" class="btn-search">
+                    </button>
+                </form>
+                {% endif %}
+                </div>
+        
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5782fe6c09631f4d135bb41e40183ad6&libraries=services"></script>
+            <script>
             // 마커를 클릭하면 장소명을 표출할 인포윈도우 입니다
             var infowindow = new kakao.maps.InfoWindow({ zIndex: 1 });
 
