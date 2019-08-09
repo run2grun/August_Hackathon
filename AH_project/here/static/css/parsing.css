@@ -1,4 +1,21 @@
+@font-face { 
+    font-family: 'NanumSquareRound'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}    
 body{
     background: url(road.jpg) no-repeat center center fixed; 
     height: 100vh;
+}
+p {
+    width: 200px;
+    height: 400px;
+    background-color: #CADBE9;
+    font-family: 'NanumSquareRound'; 
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: 80%;
+    display: block;
 }

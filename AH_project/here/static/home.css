@@ -145,6 +145,28 @@ button {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
 }
+<<<<<<< HEAD
+
+.logo{
+    position:absolute;
+    top:30%; left:50%;
+    transform: translate(-50%, -50%);
+}
+.navbar {
+    font-family: 'NanumSquareRound';
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+}
+=======
+>>>>>>> 1ccafe8b3b3c4defb508aea0eb5103eb5a1ecf55
 p {
     font-weight: bold;
     font-size: 1.2em;
