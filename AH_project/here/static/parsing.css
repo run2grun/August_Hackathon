@@ -36,6 +36,8 @@ h2 {
     font-weight: bold;
     font-size: 1em;
     font-family: 'NanumSquareRound';
+    background: rgb(191, 214, 243,0.5);
+    padding: 10px;
 }
 #map{
     margin: 0 20px 0 0;
@@ -43,3 +45,9 @@ h2 {
 .container{
     padding: 10px;
 }
+::-webkit-scrollbar{width: 16px;}
+::-webkit-scrollbar-track {background-color: #d8e9ef;}
+::-webkit-scrollbar-thumb {background-color: #353866;}
+::-webkit-scrollbar-thumb:hover {background: #353866;}
+::-webkit-scrollbar-button:start:decrement,::-webkit-scrollbar-button:end:increment {
+width:16px;height:16px;background: #d8e9ef;}

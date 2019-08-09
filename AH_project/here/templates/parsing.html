@@ -11,24 +11,10 @@
         <div class="mapnlocation">
             <div id="map" style="top:3px; flex:1; height:400px;"></div>
             <div style="height:400px; overflow:auto;flex:1;" class = "location">
-            촬영장소:<br>
-            {%for content in contents%}
-            {{content}}<br>
-            {%endfor%}
-
-            <!-- {%if posts.has_previous%}
-            <a href="?page=1">First</a>
-            <a href="?page={{posts.previous_page_number}}">Previous</a>
-            {%endif%}
-
-            <span>{{posts.number}}</span>
-            <span>of</span>
-            <span>{{posts.paginator.num_pages}}</span>
-
-            {%if posts.has_next%}
-            <a href="?page={{posts.next_page_number}}">Next</a>
-            <a href="?page={{posts.paginator.num_pages}}">Last</a>
-            {%endif%} -->
+                촬영장소:<br>
+                {%for content in contents%}
+                {{content}}<br>
+                {%endfor%}
             </div>
         </div>
     </div>
@@ -108,7 +94,8 @@
                 {% endfor %}
             
                 {% if user.is_authenticated %}
-                <form action="{%url 'text' title%}" method="GET">
+                <form action="{%url 'text' title%}" method="POST">
+                    {% csrf_token %}
                     <input type="text" name="text1">
                     <button type="submit" class="btn-search">
                         입력

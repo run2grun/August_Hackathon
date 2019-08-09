@@ -16,28 +16,30 @@ def location(request):
 
 
 def delete(request, name):
-    t = Text.objects.get(id=name)
-    t.delete()
-    return redirect('/')
+    tt = Text.objects.get(id=name)
+    title=tt.title
+    tt.delete()
+    return redirect('/text/' + title)
 
 def text(request,title):
-    text=Text()
-    u=request.user
-    text.title=title
-    text.name=u.username
-    text.text=request.GET['text1']
-    text.save()
-    check=0
+    if request.method == "POST":
+        text=Text()
+        u=request.user
+        text.title=title
+        text.name=u.username
+        text.text=request.POST['text1']
+        text.save()
+        return redirect('/text/' + title)
 
+    
     t=Text.objects
     m=Movie.objects
     for movie in m.all() :
         if movie.title == title:
             content=movie.text
             split_contents = content.split(',')
-            check=1
             break
-    
+
     
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
 
@@ -93,6 +95,5 @@ def parse(request):
         M.title=title
         M.text=a
         M.save()
-
 
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
