@@ -12,7 +12,7 @@
     <img src="{% static '로고.png' %}">
     {% if error %}
     {{error}}
-    <br><br>
+    <br>
     {% endif %}
         <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
