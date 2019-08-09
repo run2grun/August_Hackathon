@@ -172,7 +172,7 @@ p {
     left: 40%;
 }
 .sign{
-    /* position: fixed; */
+    position: absolute;
     right: 3%;
     display: flex;
 }
