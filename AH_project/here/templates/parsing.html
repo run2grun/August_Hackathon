@@ -85,7 +85,7 @@
                 {% endfor %}
             
                 {% if user.is_authenticated %}
-                <form action="{%url 'text' title%}" method="GET">{{title}}
+                <form action="{%url 'text' title%}" method="GET">
                     <input type="text" name="text1">
                     <button type="submit" class="btn-search">
                         입력
