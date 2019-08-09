@@ -52,9 +52,6 @@ def text(request,title):
         print(content.text)
 
     print(a)
-    #newstr = contents.replace("\n", "")
-
-    
     split_contents = a.split(',')
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
 
