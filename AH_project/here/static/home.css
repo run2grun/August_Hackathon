@@ -146,9 +146,12 @@ button {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
 }
+nav{
+    position: fixed;
+}
 .navbar {
     font-family: 'NanumSquareRound';
-    position: fixed;
+    position: relative;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
