@@ -1,3 +1,15 @@
+@font-face { 
+    font-family: 'GyeonggiBatang'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+@font-face { 
+    font-family: 'NanumSquareRound'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}    
 html { 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -8,14 +20,104 @@ body{
     background: url(road.jpg) no-repeat center center fixed; 
     height: 100vh;
 }
+/* 0.5 초씩 바운스 효과 */
+.bounce {
+    position: absolute;
+    top:30%; left:61%;
+    transform: translate(25%, 260%);
+/* 파폭 */
+-moz-animation: bounce 0.7s infinite linear;
+/* 크롬 */
+-webkit-animation: bounce 0.7s infinite linear;
+-o-animation: bounce 0.7s infinite linear;
+animation: bounce 0.7s infinite linear;
+}
+/*
+바운스의 높이
+0% 일 때, 0px
+50%일 때, -5px
+70%일 때, -50px
+100%일 때, 0px
+*/
+@-webkit-keyframes bounce {
+0% {
+top: 0;
+}
+50% {
+top: -5px;
+}
+70% {
+top: -30px;
+}
+100% {
+top: 0;
+}
+}
+@-moz-keyframes bounce {
+0% {
+top: 0;
+}
+50% {
+top: -5px;
+}
+70% {
+top: -30px;
+}
+100% {
+top: 0;
+}
+}
+@-o-keyframes bounce {
+0% {
+top: 0;
+}
+50% {
+top: -5px;
+}
+70% {
+top: -30px;
+}
+100% {
+top: 0;
+}
+}
+@-ms-keyframes bounce {
+0% {
+top: 0;
+}
+50% {
+top: -5px;
+}
+70% {
+top: -30px;
+}
+100% {
+top: 0;
+}
+}
+@keyframes bounce {
+0% {
+top: 0;
+}
+50% {
+top: -5px;
+}
+70% {
+top: -30px;
+}
+100% {
+top: 0;
+}
+}
 
 input{
+    font-family: 'GyeonggiBatang'; 
     position: relative;
     width: 500px;
     height: 70px;
     padding: 0 0 0 10px;
     display: inline-block;
-    float: left;
+    float: left; 
     color: #666;
     border: 0 none;
     border-radius: 5px 0 0 5px;
@@ -31,7 +133,11 @@ button {
     border-radius: 0 5px 5px 0;
     outline: none;
 }
-
+.logo{
+    position:absolute;
+    top:33%; left:50%;
+    transform: translate(-50%, -50%);
+}
 .search {
     position:absolute;
     top:50%; left:50%;
@@ -39,15 +145,23 @@ button {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
 }
-
-.logo{
-    position:absolute;
-    top:30%; left:50%;
-    transform: translate(-50%, -50%);
+.navbar {
+    font-family: 'NanumSquareRound';
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: .5rem 1rem;
 }
 p {
+    font-weight: bold;
     font-size: 1.2em;
-    font-family: 'Handon3gyeopsal600g';  
+    font-family: 'NanumSquareRound'; 
     display: block;
     position: absolute;
     top: 57%;

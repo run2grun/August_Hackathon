@@ -30,4 +30,3 @@ urlpatterns = [
     path('text/<title>',here.views.text, name='text'),
     path('delete/<name>',here.views.delete, name='delete'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
-

@@ -62,7 +62,7 @@ ROOT_URLCONF = 'AH.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['AH/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

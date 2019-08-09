@@ -1,0 +1,35 @@
+html { 
+    background: #cadbe9;
+}
+.container{
+    position:absolute;
+    top:40%; left:50%;
+    transform: translate(-50%, -50%);
+}
+input{
+    position: relative;
+    width: 500px;
+    height: 50px;
+    padding: 0 0 0 10px;
+    display: inline-block;
+    color: #666;
+    border: 0 none;
+    font-size: 15px;
+    outline: none;
+}
+
+.nemo {
+    border: 2px solid #1b2b84;
+    margin: 0 0 10px 0;
+}
+.btn{
+    background-color:  #1b2b84;
+    color: white;
+    width:514px;
+}
+button{
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+}
