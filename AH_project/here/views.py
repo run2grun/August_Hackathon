@@ -40,14 +40,17 @@ def text(request,title):
     driver.get('https://www.kmdb.or.kr/main')
     driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
     searchs = driver.find_elements_by_class_name('ftc-blue')
+    cnt=0
     for search in searchs:
         print(search.text)
-        if search.text==title:
+        if cnt==1:
+            print("click")
             search.click()
             break
+        cnt=cnt+1
+
     a=''
     contents=driver.find_elements_by_class_name('gab1')
-    print(contents)
     for content in contents:
         a+=content.text
         print(content.text)
@@ -71,14 +74,22 @@ def parse(request):
     driver.get('https://www.kmdb.or.kr/main')
     driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
     searchs = driver.find_elements_by_class_name('ftc-blue')
+    # for search in searchs:
+    #     print(search.text)
+    #     if search.text==title:
+    #         search.click()
+    #         break
+    cnt=0
     for search in searchs:
         print(search.text)
-        if search.text==title:
+        if cnt==1:
+            print("click")
             search.click()
             break
+        cnt=cnt+1
+
     a=''
     contents=driver.find_elements_by_class_name('gab1')
-    print(contents)
     for content in contents:
         a+=content.text
         print(content.text)
