@@ -42,13 +42,10 @@ def text(request,title):
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
 
 
-
 def parse(request):
     t=Text.objects
     m=Movie.objects
     title = request.GET['parse_url']
-
-    
 
     check=0
     for movie in m.all() :
