@@ -94,8 +94,5 @@ def parse(request):
         M.text=a
         M.save()
 
-    paginator = Paginator(split_contents,16)
-    page = request.GET.get('page')
-    posts = paginator.get_page(page)
 
-    return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t, 'posts':posts})
+    return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
