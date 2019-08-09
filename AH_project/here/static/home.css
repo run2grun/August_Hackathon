@@ -148,7 +148,8 @@ button {
 }
 nav{
     position: fixed;
-}
+    bottom: 0;
+    right: 0;}
 .navbar {
     font-family: 'NanumSquareRound';
     position: relative;
@@ -175,4 +176,14 @@ p {
     position: absolute;
     right: 3%;
     display: flex;
+}
+.mapnlocation{
+    display: flex;
+}
+#map{
+    float:left;
+}
+.location{
+    width: 400px;
+    float:left;
 }

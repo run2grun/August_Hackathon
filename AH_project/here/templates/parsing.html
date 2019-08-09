@@ -2,11 +2,16 @@
 
 {% block content %}
 <body>
+{% load staticfiles %}
     <h1>검색 결과</h1>
     <div class="con2">
         <h2>{{ title }}</h2>
-
-            <div id="map" style="left:50px;top:3px;width:350px;height:350px;"></div>
+            <div class="mapnlocation">
+                <div id="map" style="left:50px;top:3px; flex:1; height:350px;"></div>
+                <div style="flex:1;" class = "location">
+                    촬영장소 :{{contents|linebreaksbr}}
+                </div>
+            </div>
             <br><br><br>
             <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
                 {%for content in t.all%}
@@ -24,7 +29,7 @@
                 {% endfor %}
             
                 {% if user.is_authenticated %}
-                <form action="{%url 'text' title%}" method="GET">{{title}}
+                <form action="{%url 'text' title%}" method="GET">
                     <input type="text" name="text1">
                     <button type="submit" class="btn-search">
                         입력
@@ -91,9 +96,7 @@
         </script>
             
         {%endfor%}
-        <div class = location>
-            <p>촬영장소 :{{contents|linebreaksbr}} </p>
-        </div>
+        
     </body>
 </html>
 {% endblock %}
