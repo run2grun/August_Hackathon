@@ -10,9 +10,9 @@
         <h2>{{ title }}</h2>
         <div class="mapnlocation">
             <div id="map" style="top:3px; flex:1; height:400px;"></div>
-            <div style="flex:1;" class = "location">
+            <div style="height:400px; overflow:auto;flex:1;" class = "location">
             촬영장소:<br>
-            {%for content in posts%}
+            {%for content in contents%}
             {{content}}<br>
             {%endfor%}
 
