@@ -39,6 +39,7 @@ p {
     margin-right: auto;
     margin-left: 80%;
     display: block;
+    margin-bottom: 50%;
 }
 .list p{
     font-size: 1rem;
