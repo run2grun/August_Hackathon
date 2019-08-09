@@ -8,7 +8,7 @@ from django.contrib import auth
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    return render(request, 'home.html') 
 
 def location(request):
     return render(request, 'location.html')
@@ -26,6 +26,7 @@ def text(request,title):
     text.name=u.username
     text.text=request.GET['text1']
     text.save()
+    check=0
 
     t=Text.objects
     m=Movie.objects
@@ -45,7 +46,7 @@ def parse(request):
     t=Text.objects
     m=Movie.objects
     title = request.GET['parse_url']
-    
+    check=0
     for movie in m.all() :
         if movie.title == title:
             content=movie.text
