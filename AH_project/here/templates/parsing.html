@@ -90,14 +90,20 @@
                 {%for content in t.all%}
 
                 {% if title == content.title%}
-                <h5 class="card-title">{{content.name}} :  {{content.text}}</h5>
-                {% endif %}
-
+                <h5 style="display:inline" class="card-title">{{content.name}} :  {{content.text}}</h5>
                 {%if user.username == content.name %}
                     <a href="{% url 'delete' content.id %}">삭제</a> 
                 {%else%}
                     <a href="{% url 'delete' content.name %}" style="display:none;">삭제</a>
                 {%endif%}
+                <br>
+                {% endif %}
+
+                <!-- {%if user.username == content.name %}
+                    <a href="{% url 'delete' content.id %}">삭제</a> 
+                {%else%}
+                    <a href="{% url 'delete' content.name %}" style="display:none;">삭제</a>
+                {%endif%} -->
 
                 {% endfor %}
             
