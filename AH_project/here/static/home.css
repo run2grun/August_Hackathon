@@ -145,12 +145,6 @@ button {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
 }
-
-.logo{
-    position:absolute;
-    top:30%; left:50%;
-    transform: translate(-50%, -50%);
-}
 .navbar {
     font-family: 'NanumSquareRound';
     position: relative;
