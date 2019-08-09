@@ -5,9 +5,9 @@ html {
 form{
     background: white;
     border-radius: 5px 5px 5px 5px;
-    border: 3px solid #1b2b84;
+    border: 4px solid #1b2b84;
     padding: 10px;
-
+    margin: 15px 0 0 0;
 }
 
 .btn{
@@ -15,13 +15,14 @@ form{
     border: none;
     outline: none;
     height: 40px;
-    left:30%;
 }
 
 input{
     width: 330px;
     height: 35px;
-    margin: 0 0 10px 0;
+    margin: 0 0 7px 10px;
     font-size: 15px;
-    border: 2px solid #1b2b84;
+}
+p{
+    margin: 5px 0 0 10px;
 }
