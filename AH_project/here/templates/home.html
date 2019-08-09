@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'home.css' %}">
+    <script src="bounce.js"></script>
     <script src="https://kit.fontawesome.com/9e7c910136.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -22,6 +23,7 @@
     <script language="javascript">
         function showPopup() { window.open("{% url 'signup' %}", "a", "width=400, height=500, left=100, top=50"); }
     </script>
+    <!-- <link rel="stylesheet" href="{% static 'bounce.css' %}"> -->
     <title>Home</title>
 </head>
 
@@ -65,7 +67,8 @@
             </ul>
         </div>
     </nav>
-    <div class="logo"><img src="{% static '로고.png' %}"></div>
+    <div class="bounce"><img src="{% static '로고아이콘.png' %}"></div>
+    <div class="logo"><img src="{% static '로고이름만.png' %}"></div>
     <div class="search" id="search">
         <form action="{%url 'parse' %}" method="GET">
         <input type="text" name="parse_url" placeholder="검색어 입력">
