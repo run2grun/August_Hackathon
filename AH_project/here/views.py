@@ -31,7 +31,7 @@ def text(request,title):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
 
-    driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32")
+    driver = webdriver.Chrome("C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe")
 
     #,chrome_options=options -> 창안보이게 하기
     #혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
@@ -64,7 +64,7 @@ def parse(request):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     
-    driver = webdriver.Chrome("C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\chromedriver_win32\\chromedriver.exe")
+    driver = webdriver.Chrome("C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe")
     # ,chrome_options=options -> 창안보이게 하기
     # 혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
     print('크롤링 시작')
