@@ -16,15 +16,15 @@
     {% endif %}
         <form method="POST" action="{% url 'signup' %}">
             {% csrf_token %}
-            Username:
+            아이디
             <br>
             <input name="username" type="text" value="">
             <br>
-            Password:
+            비밀번호
             <br>
             <input name="password1" type="password" value="">
             <br>
-            Confirm Password:
+            비밀번호 확인
             <br>
             <input name="password2" type="password" value="">
             <br><br>

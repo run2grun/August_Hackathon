@@ -27,3 +27,9 @@ input{
     color: white;
     width:514px;
 }
+button{
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: transparent;
+    border: none;
+}
