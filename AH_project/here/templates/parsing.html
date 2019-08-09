@@ -8,15 +8,30 @@
     <div class="container" id="title">
         <h1>검색 결과</h1>
         <h2>{{ title }}</h2>
-            <div class="mapnlocation">
-                <div id="map" style="top:3px; flex:1; height:400px;"></div>
-                <div style="flex:1.5;" class = "location">
-                    촬영장소 :{{contents|linebreaksbr}}
-                </div>
-            <br><br><br>
+        <div class="mapnlocation">
+            <div id="map" style="top:3px; flex:1; height:400px;"></div>
+            <div style="flex:1;" class = "location">
+            촬영장소:<br>
+            {%for content in posts%}
+            {{content}}<br>
+            {%endfor%}
+
+            <!-- {%if posts.has_previous%}
+            <a href="?page=1">First</a>
+            <a href="?page={{posts.previous_page_number}}">Previous</a>
+            {%endif%}
+
+            <span>{{posts.number}}</span>
+            <span>of</span>
+            <span>{{posts.paginator.num_pages}}</span>
+
+            {%if posts.has_next%}
+            <a href="?page={{posts.next_page_number}}">Next</a>
+            <a href="?page={{posts.paginator.num_pages}}">Last</a>
+            {%endif%} -->
+            </div>
+        </div>
     </div>
-    <div class="container" id="map">
-        
         <br>
     
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5782fe6c09631f4d135bb41e40183ad6&libraries=services"></script>
@@ -69,10 +84,8 @@
             }
         }
     </script>
-    </div>
     {%endfor%}
-        
-    </div>
+
         <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
                 {%for content in t.all%}
 
@@ -102,7 +115,7 @@
                     </button>
                 </form>
                 {% endif %}
-                </div>
+        </div>
     </body>
 </html>
 {% endblock %}

@@ -177,13 +177,3 @@ p {
     right: 3%;
     display: flex;
 }
-.mapnlocation{
-    display: flex;
-    margin: 0 30px 0 30px;
-}
-#map{
-    float: left;
-}
-.location{
-    float: left;
-}

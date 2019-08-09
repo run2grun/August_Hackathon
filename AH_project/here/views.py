@@ -5,6 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from .models import Text,Movie
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.core.paginator import Paginator
 
 # Create your views here.
 def home(request):
@@ -46,6 +47,9 @@ def parse(request):
     t=Text.objects
     m=Movie.objects
     title = request.GET['parse_url']
+
+    
+
     check=0
     for movie in m.all() :
         if movie.title == title:
@@ -90,4 +94,8 @@ def parse(request):
         M.text=a
         M.save()
 
-    return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
+    paginator = Paginator(split_contents,16)
+    page = request.GET.get('page')
+    posts = paginator.get_page(page)
+
+    return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t, 'posts':posts})
