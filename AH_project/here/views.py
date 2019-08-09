@@ -31,7 +31,7 @@ def text(request,title):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
 
-    driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32")
+    driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32\\chromedriver.exe")
 
     #,chrome_options=options -> 창안보이게 하기
     #혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
@@ -40,22 +40,22 @@ def text(request,title):
     driver.get('https://www.kmdb.or.kr/main')
     driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
     searchs = driver.find_elements_by_class_name('ftc-blue')
+    cnt=0
     for search in searchs:
         print(search.text)
-        if search.text==title:
+        if cnt==1:
+            print("click")
             search.click()
             break
+        cnt=cnt+1
+
     a=''
     contents=driver.find_elements_by_class_name('gab1')
-    print(contents)
     for content in contents:
         a+=content.text
         print(content.text)
 
     print(a)
-    #newstr = contents.replace("\n", "")
-
-    
     split_contents = a.split(',')
     return render(request,'parsing.html',{'title':title,'contents':split_contents,'t':t})
 
@@ -67,21 +67,29 @@ def parse(request):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     
-    driver = webdriver.Chrome("C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\chromedriver_win32\\chromedriver.exe")
+    driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32\\chromedriver.exe")
     # ,chrome_options=options -> 창안보이게 하기
     # 혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
     print('크롤링 시작')
     driver.get('https://www.kmdb.or.kr/main')
     driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
     searchs = driver.find_elements_by_class_name('ftc-blue')
+    # for search in searchs:
+    #     print(search.text)
+    #     if search.text==title:
+    #         search.click()
+    #         break
+    cnt=0
     for search in searchs:
         print(search.text)
-        if search.text==title:
+        if cnt==1:
+            print("click")
             search.click()
             break
+        cnt=cnt+1
+
     a=''
     contents=driver.find_elements_by_class_name('gab1')
-    print(contents)
     for content in contents:
         a+=content.text
         print(content.text)
