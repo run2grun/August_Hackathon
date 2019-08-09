@@ -12,12 +12,7 @@
             <div class="mapnlocation">
                 <div id="map" style="top:3px; flex:1; height:400px;"></div>
                 <div style="flex:1.5;" class = "location">
-                <p>{{contents|linebreaksbr}}</p>
-                    {% for n in contents %}
-                    <br>
-                    {% endfor %}
-                <!--여기서 지도로 넘어가게 링크 걸기-->
-                    <!-- 촬영장소 :{{contents|linebreaksbr}} -->
+                    촬영장소 :{{contents|linebreaksbr}}
                 </div>
             </div>
             <br><br><br>
@@ -25,8 +20,8 @@
 
     </div>
     <div class="container" id="map">
-        <div id="map" style="left:50px;top:3px;width:350px;height:350px;">
-        <br><br><br>
+        
+        <br>
     
         <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5782fe6c09631f4d135bb41e40183ad6&libraries=services"></script>
         <script>
@@ -80,12 +75,8 @@
     </script>
     </div>
         {%endfor%}
-        <div class = location>
-            <p>촬영장소 :{{contents|linebreaksbr}} </p>
-        </div>
     </div>
         <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
-
                 {%for content in t.all%}
 
                 {% if title == content.title%}

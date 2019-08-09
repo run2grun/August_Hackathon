@@ -45,7 +45,7 @@ def parse(request):
     t=Text.objects
     m=Movie.objects
     title = request.GET['parse_url']
-    
+    check=0
     for movie in m.all() :
         if movie.title == title:
             content=movie.text
@@ -60,6 +60,7 @@ def parse(request):
         # ,chrome_options=options -> 창안보이게 하기
         # 혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
         #근영 경로 C:\\Users\\Keunyung\\Documents\\GitHub\\August_Hackathon\\chromedriver_win32\\chromedriver.exe
+        #희주 경로 C:\\Users\\choi\\Downloads\\chromedriver_win32\\chromedriver.exe
         print('크롤링 시작')
         driver.get('https://www.kmdb.or.kr/main')
         driver.find_element_by_name('mainSearchText').send_keys(title+Keys.ENTER)
