@@ -20,6 +20,7 @@ body{
     background: url(road.jpg) no-repeat center center fixed; 
     height: 100vh;
 }
+
 /* 0.5 초씩 바운스 효과 */
 .bounce {
     position: absolute;
@@ -145,6 +146,9 @@ button {
     border-radius: 5px 5px 5px 5px;
     border: 3px solid #1b2b84;
 }
+nav{
+    position: fixed;
+}
 .navbar {
     font-family: 'NanumSquareRound';
     position: relative;
@@ -168,7 +172,7 @@ p {
     left: 40%;
 }
 .sign{
-    position: fixed;
+    /* position: fixed; */
     right: 3%;
     display: flex;
 }
