@@ -8,6 +8,16 @@
     <div class="container" id="title">
         <h1>검색 결과</h1>
         <h2>{{ title }}</h2>
+
+            <div class="mapnlocation">
+                <div id="map" style="top:3px; flex:1; height:400px;"></div>
+                <div style="flex:1.5;" class = "location">
+                    촬영장소 :{{contents|linebreaksbr}}
+                </div>
+            </div>
+            <br><br><br>
+            <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
+
     </div>
     <div class="container" id="map">
         <div id="map" style="left:50px;top:3px;width:350px;height:350px;">
@@ -70,6 +80,7 @@
         </div>
     </div>
         <div class="container" id="text" style="border: 3px solid #1b2b84;background-color: rgb(191, 214, 243,0.5);margin-top: 30px;margin-bottom:10px;">
+
                 {%for content in t.all%}
 
                 {% if title == content.title%}
