@@ -1,9 +1,12 @@
 html { 
-    background: url(road.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+body{
+    background: url(road.jpg) no-repeat center center fixed; 
+    height: 100vh;
 }
 
 input{
@@ -41,4 +44,17 @@ button {
     position:absolute;
     top:30%; left:50%;
     transform: translate(-50%, -50%);
+}
+p {
+    font-size: 1.2em;
+    font-family: 'Handon3gyeopsal600g';  
+    display: block;
+    position: absolute;
+    top: 57%;
+    left: 40%;
+}
+.sign{
+    position: fixed;
+    right: 3%;
+    display: flex;
 }
