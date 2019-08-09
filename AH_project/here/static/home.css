@@ -1,3 +1,15 @@
+@font-face { 
+    font-family: 'GyeonggiBatang'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+@font-face { 
+    font-family: 'NanumSquareRound'; 
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+    font-weight: normal; 
+    font-style: normal; 
+}    
 html { 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -99,12 +111,13 @@ top: 0;
 }
 
 input{
+    font-family: 'GyeonggiBatang'; 
     position: relative;
     width: 500px;
     height: 70px;
     padding: 0 0 0 10px;
     display: inline-block;
-    float: left;
+    float: left; 
     color: #666;
     border: 0 none;
     border-radius: 5px 0 0 5px;
@@ -133,8 +146,9 @@ button {
     border: 3px solid #1b2b84;
 }
 p {
+    font-weight: bold;
     font-size: 1.2em;
-    font-family: 'Handon3gyeopsal600g';  
+    font-family: 'NanumSquareRound'; 
     display: block;
     position: absolute;
     top: 57%;
