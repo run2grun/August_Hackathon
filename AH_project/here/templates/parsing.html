@@ -12,7 +12,12 @@
             <div class="mapnlocation">
                 <div id="map" style="top:3px; flex:1; height:400px;"></div>
                 <div style="flex:1.5;" class = "location">
-                    촬영장소 :{{contents|linebreaksbr}}
+                <p>{{contents|linebreaksbr}}</p>
+                    {% for n in contents %}
+                    <br>
+                    {% endfor %}
+                <!--여기서 지도로 넘어가게 링크 걸기-->
+                    <!-- 촬영장소 :{{contents|linebreaksbr}} -->
                 </div>
             </div>
             <br><br><br>
