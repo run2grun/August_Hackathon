@@ -27,5 +27,7 @@ urlpatterns = [
     path('location/', here.views.location, name='location'),
     path('parse/', here.views.parse, name='parse'),
     path('accounts/',include('accounts.urls')),
+    path('text/<title>',here.views.text, name='text'),
+    path('delete/<name>',here.views.delete, name='delete'),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
