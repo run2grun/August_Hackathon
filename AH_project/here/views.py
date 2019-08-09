@@ -16,7 +16,11 @@ def parse(request):
     options = webdriver.ChromeOptions()
     options.add_argument('headless')
     
+<<<<<<< HEAD
     driver = webdriver.Chrome("C:\\Users\\Keunyung\\Desktop\\LIKELION\\August_Hackathon-master\\Refer________\\chromedriver_win32\\chromdrier.exe")
+=======
+    driver = webdriver.Chrome("C:\\Users\\choi\\Downloads\\chromedriver_win32")
+>>>>>>> cb4cd24bef6cacffeb367d36c847df5ed13fd11a
     #,chrome_options=options -> 창안보이게 하기
     #혜진 경로 C:\\Users\\user\\Downloads\\chromedriver_win32\\chromedriver.exe
     print('크롤링 시작')
